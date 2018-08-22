@@ -1,6 +1,6 @@
 // public/js/controllers/MainCtrl.js
 angular.module('MainCtrl', ['ngCookies']).controller('MainController', function ($scope,$location,UserService) {
-
+    /*
     var tickers = ['.IXIC', '.INX','PX1'];
     var libelles = ['NASDAQ', 'SP500','CAC 40'];
 
@@ -57,5 +57,6 @@ angular.module('MainCtrl', ['ngCookies']).controller('MainController', function 
             }
         });
     }
+    */
 
 });

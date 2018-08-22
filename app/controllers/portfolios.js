@@ -11,8 +11,12 @@ var Stock = require('./stock.js');
 module.exports.getlist = function (id, callback) {
   Porfolio.find({ 'nom': id }, function (err, result) {
     if (err) return next(err);
+    if (result.length >0)
+    {
     foliolist = result[0].items;
     callback(null, foliolist)
+    }
+    else{console.log("aucun résultat pour " + id)}
   });
 };
 

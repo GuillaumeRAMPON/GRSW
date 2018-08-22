@@ -43,42 +43,6 @@
 <body ng-app="stockview" ng-controller="MainController">
     <div class="container">
 
-        <!-- HEADER -->
-        <!--<nav class="navbar navbar-inverse">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Synthèse</a>
-            </div>
-
-            <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-            <!--<ul class="nav navbar-nav">
-                <li><a href="/portfolio">Portfolios</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="/stocklist">Valeurs</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="/stockhist">HyperV</a></li>
-            </ul>
-            
-            <ul class="nav navbar-nav navbar-right">
-  <li ng-hide="vm.isLoggedIn"><a href="login">Sign in</a></li>
-  <li ng-show="vm.isLoggedIn"><a href="/">{{ navvm.currentUser }}</a></li>
-</ul>-->
-            <!--<div ng-switch on="userlogged" >
-
-                <div ng-switch-when="">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login" >Login</a></li>
-                    </ul>
-                </div>
-                <div ng-switch-default> 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/" ng-click="unLogin()">{{userlogged}}</a></li>
-                    </ul></div>
-            </div>
-        </nav>-->
-
-        <!-- ANGULAR DYNAMIC CONTENT -->
         <div ng-view></div>
 
     </div>

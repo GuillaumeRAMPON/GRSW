@@ -6,13 +6,28 @@ var FavList = require('./models/favlist.js');
 var FolioList = require('./controllers/portfolios.js');
 var Transactions = require('./controllers/transactions.js');
 var http = require('http');
-
+var request = require('request');
 
 module.exports = function (app) {
 
     // server routes ===========================================================
     // handle things like api calls
     // authentication routes
+    app.post('/api/checklogin/',function(req,res)
+    {
+        //console.log(req.body);
+        loguser = "KO";
+        if (req.body.username=="grn" & req.body.password=="grn")
+        {
+          loguser = "GRN";
+        }
+        if (req.body.username=="nbn" & req.body.password=="n")
+        {
+          loguser = "NBN";
+        }
+        
+        res.send(loguser);
+    });
 
     app.get('/api/favlist', function (req, res) {
         FavList.getlist(function (err, favlist) {
@@ -89,7 +104,7 @@ module.exports = function (app) {
                 console.log('Bad GTYPE');
         }
 
-        var request = require('request');
+        //var request = require('request');
         request('http://www.alphavantage.co/query?function=' + timeseries + '&symbol=' + ticker + '&apikey=AML0', function (error, response, body) {
             //request('http://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=BON.PA&apikey=AML0&outputsize=full', function (error, response, body) {
             if (!error && response.statusCode == 200) {
@@ -122,6 +137,9 @@ module.exports = function (app) {
                 res.json(outjsonObj);
 
             }
+            else {
+                //console.log(body); // Print the google web page.
+            }
         });
 
 
@@ -134,7 +152,7 @@ module.exports = function (app) {
     app.get('/api/stockdaily', function (req, res) {
         var ticker = req.query.ticker;
 
-        var request = require('request');
+        //var request = require('request');
         request('http://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' + ticker + '&interval=15min&apikey=AML0', function (error, response, body) {
             if (!error && response.statusCode == 200) {
 

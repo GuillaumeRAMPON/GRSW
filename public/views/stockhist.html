@@ -6,7 +6,12 @@
 <div class="jumbotron text-center">
     <h1>HYPERVISION</h1>
 
-    <div ng-repeat="o in arr">
+    <select ng-model="lselected" ng-change="switchHistList()">
+        <option ng-repeat="o in stockgroup">{{o}}</option>
+    </select>
+
+
+    <div ng-repeat="o in libelles">
 
         <div class="panel panel-info">
             <div class="panel-heading">

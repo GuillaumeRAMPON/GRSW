@@ -1,7 +1,8 @@
 var http = require('http');
+var request = require('request');
 
 module.exports.getLastValue = function (id, callback) {
-    var request = require('request');
+    //var request = require('request');
 
     //request('http://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + id + '&apikey=AML0', function (error, response, body) {
     request('http://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + id + '&apikey=AML0', function (error, response, body) {
@@ -24,3 +25,4 @@ module.exports.getLastValue = function (id, callback) {
         }
     })
 }
+
