@@ -1,0 +1,101 @@
+<navigation></navigation>
+
+<!-- public/views/portfolio.html -->
+
+<div class="jumbotron text-center">
+    <h1>Portefeuille</h1>
+    <select ng-model="pselected" ng-change="switchPortfolio()">
+        <option ng-repeat="o in portfolios">{{o}}</option>
+    </select>
+
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>Actif</th>
+                <th>Code</th>
+                <th>Perf Eur</th>
+                <th>Perf %</th>
+                <th>Quantité</th>
+                <th>Position</th>
+                <th>Cours</th>
+                <th>Janvier</th>
+                <th>Achat</th>
+                <th>Vente</th>
+                <th>Dividende</th>
+                <th>Poids %</th>
+            </tr>
+            <tr ng-repeat="o in foliolist">
+                <td><a href="/stockdetail?ticker={{ o.code }}&portfolio={{pselected}}"> {{ o.libelle }}</a></td>
+                <td>{{ o.code }}</td>
+                <td>{{ o.perfeur | number :2 }}</td>
+                <td>{{ o.perfratio | number :2 }}</td>
+                <td>{{ o.qty | number :2}}</td>
+                <td>{{ o.valo | number :2}}</td>
+                <td>{{ o.cours | number :2}}</td>
+                <td>{{ o.valeurJanvier | number :2}}</td>
+                <td>{{ o.achat | number :2}}</td>
+                <td>{{ o.vente | number :2}}</td>
+                <td>{{ o.dividendes }}</td>
+                <td>{{ o.valo / valototale * 100 | number : 2 }}</td>
+            </tr>
+            <tr class="success">
+                <td>TOTAL</td>
+                <td></td>
+                <td>{{ perftotale | number :2 }}</td>
+                <td>{{ perftotaleratio | number : 2 }}</td>
+                <td></td>
+                <td>{{ valototale | number :2}}</td>
+                <td></td>
+                <td>{{ jantotale | number :2}}</td>
+                <td>{{ achattotale | number :2}}</td>
+                <td>{{ ventetotale | number :2}}</td>
+                <td>{{ dividendestotale | number :2}}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <button ng-click="getStockValues()" class="btn btn-success btn-sm">
+            Mise à jour des cours
+        </button>
+
+        <button ng-click="saveHisto()" class="btn btn-success btn-sm">
+            Historiser
+        </button>
+    </div>
+
+</div>
+
+
+
+<!--<div>{{chartpdata}}</div>-->
+<div id="chartp" class="c3"></div>
+
+
+<div class="col-xs-4">
+    <h2 class="text-center">Classe d'actif</h2>
+    <div id="chartsumc" class="c3"></div>
+</div>
+
+<div class="col-xs-4">
+    <h2 class="text-center">Secteurs</h2>
+    <div id="chartsums" class="c3"></div>
+</div>
+
+<div class="col-xs-4">
+    <h2 class="text-center">Geographie</h2>
+    <div id="chartsumg" class="c3"></div>
+</div>
+
+<div class="col-xs-4">
+    <h2 class="text-center">Performance</h2>
+    <div id="charthpe" class="c3"></div>
+</div>
+<div class="col-xs-4">
+    <h2 class="text-center">Cours</h2>
+    <div id="charthpr" class="c3"></div>
+</div>
+<div class="col-xs-4">
+    <h2 class="text-center">Actif</h2>
+    <div id="charthva" class="c3"></div>
+</div>

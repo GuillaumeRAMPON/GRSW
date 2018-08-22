@@ -1,0 +1,26 @@
+<navigation></navigation>
+
+<!-- public/views/home.html -->
+
+<div class="jumbotron text-center">
+    <h1>Valeurs Favorites</h1>
+
+    <p>{{ tagline }}</p>
+    Resultat :
+    <p>{{ resultat }}</p>
+    Liste :
+    <p>{{ favlist }}</p>
+
+    <div>
+        <table>
+            <tr>
+                <th>Société</th>
+                <th>Code</th>
+            </tr>
+            <tr ng-repeat="o in favlist">
+                <td><a href="/stockdetail"> {{ o.nom }}</a></td>
+                <td>{{ o.code }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

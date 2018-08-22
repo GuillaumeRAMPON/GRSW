@@ -1,0 +1,25 @@
+<navigation></navigation>
+
+<!-- public/views/home.html -->
+
+<div class="jumbotron text-center">
+    <h1>Etat des marchés</h1>
+
+    <div>
+        Taux FR à 10 ans 
+        <div class="btn btn-default">
+            <a href="http://www.aft.gouv.fr/rubriques/tec-10_173.html"> AFT TEC10 </a>  
+        </div>
+        <div class="btn btn-default">
+            <a href="http://www.bloomberg.com/quote/GFRN10:IND"> Graph </a> 
+        </div>
+    </div>
+
+    <div ng-repeat="o in arr">
+        <h2>{{ o }}</h2>
+        <div id="mychart{{ $index }}" class="c3"></div>
+    </div>
+
+
+
+</div>

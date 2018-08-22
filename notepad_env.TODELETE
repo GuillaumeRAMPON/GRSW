@@ -1,0 +1,39 @@
+<NotepadPlus>
+    <Project name="StockView">
+        <Folder name="app">
+            <Folder name="models">
+                <File name="app\models\nerd.js" />
+            </Folder>
+            <File name="app\routes.js" />
+        </Folder>
+        <Folder name="config">
+            <File name="config\db.js" />
+        </Folder>
+        <Folder name="public">
+            <Folder name="js">
+                <Folder name="controllers">
+                    <File name="public\js\controllers\MainCtrl.js" />
+                    <File name="public\js\controllers\NerdCtrl.js" />
+                </Folder>
+                <Folder name="services">
+                    <File name="public\js\services\NerdService.js" />
+                </Folder>
+                <File name="public\js\app.js" />
+                <File name="public\js\appRoutes.js" />
+            </Folder>
+            <Folder name="views">
+                <File name="public\views\home.html" />
+                <File name="public\views\index.html" />
+                <File name="public\views\nerd.html" />
+            </Folder>
+        </Folder>
+        <File name=".bowerrc" />
+        <File name="bower.json" />
+        <File name="Lancer CMD.bat" />
+        <File name="Lancer ServerWeb.bat" />
+        <File name="notepad_env" />
+        <File name="package-lock.json" />
+        <File name="package.json" />
+        <File name="server.js" />
+    </Project>
+</NotepadPlus>

@@ -1,0 +1,116 @@
+<navigation></navigation>
+
+<!-- public/views/stockdetail.html -->
+<div class="jumbotron text-center">
+    <a href="/portfolio?portfolio={{portfolio}}">Retour Portefeuille</a>
+    <h1>{{ portfolio + " - " + ticker }}</h1>
+
+    <!--<p>{{ tagline }}</p>-->
+
+    <h2>Position</h2>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>Actif</th>
+                <th>Code</th>
+                <th>Perf Eur</th>
+                <th>Perf %</th>
+                <th>Quantité</th>
+                <th>Position</th>
+                <th>Cours</th>
+                <th>Janvier</th>
+                <th>Achat</th>
+                <th>Vente</th>
+                <th>Dividende</th>
+            </tr>
+            <tr>
+                <td>{{ position.libelle }}</td>
+                <td>{{ position.code }}</td>
+                <td>{{ position.perfeur | number :2 }}</td>
+                <td>{{ position.perfratio | number :2 }}</td>
+                <td>{{ position.qty | number :2}}</td>
+                <td>{{ position.valo | number :2}}</td>
+                <td>{{ position.cours | number :2}}</td>
+                <td>{{ position.valeurJanvier | number :2}}</td>
+                <td>{{ position.achat | number :2}}</td>
+                <td>{{ position.vente | number :2}}</td>
+                <td>{{ position.dividendes }}</td>
+            </tr>
+        </table>
+        <form name="valueform" class="col-md-6 col-md-offset-3 form-inline">
+            <input type="number" step="0.01" id="cours" class="form-control" ng-model="cours" required value="{{ position.cours }}">
+            <button type="submit" class="btn btn-default" ng-click="saveLastValue()" ng-disabled="valueform.$invalid">Save</button>
+        </form>
+    </div>
+
+    <div class="col-md-12">
+        <h2>Courbes</h2>
+        <button ng-click="generatechart('MONTHLY')">MONTHLY</button>
+        <button ng-click="generatechart('WEEKLY')">WEEKLY</button>
+        <button ng-click="generatechart('DAILY')" ng-init="generatechart('DAILY')">DAILY</button>
+
+        <div id="mychart" class="c3"></div>
+
+    </div>
+
+    
+    <div class="row">
+        <h2>Transactions</h2>
+        <form name="transactionform" class="col-md-6">
+            <div class="form-group">
+                <label for="transactiontype" class="col-md-2">Type</label>
+                <div class="col-md-9">
+                    <select id="transactiontype" class="form-control" ng-model="transaction.type" required>
+                        <option value ="Achat">Achat</option>
+                        <option value="Vente">Vente</option>
+                        <option value="Dividende">Dividende</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group " ng-hide="transaction.type=='Dividende'">
+                <label for="qty" class="col-md-2">Quantité</label>
+                <div class="col-md-9">
+                    <input type="number" id="qty" class="form-control" ng-model="transaction.quantity" ng-required="transaction.type!='Dividende'">
+
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="amount" class="col-md-2">Montant</label>
+                <div class="col-md-9">
+                    <input type="number" step="0.01" id="amount" class="form-control" ng-model="transaction.amount" required>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="transactiondate" class="col-md-2">Date</label>
+                <div class="col-md-9">
+                    <input type="date" id="transactiondate" class="form-control" ng-model="transaction.date" required>
+                </div>
+
+            </div>
+            <div class="form-group ">
+                <div class="">
+                    <button type="submit" class="btn btn-default" ng-click="addTransaction()" ng-disabled="transactionform.$invalid">Add</button>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="col-md-6">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Quantité</th>
+                    <th>Montant</th>
+                </tr>
+                <tr ng-repeat="o in transactions | orderBy: 'date'">
+                    <td>{{o.date | date : 'dd/MM/yyyy'}}</td>
+                    <td>{{o.type}}</td>
+                    <td>{{o.quantity}}</td>
+                    <td>{{o.amount}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

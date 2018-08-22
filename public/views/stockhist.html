@@ -1,0 +1,30 @@
+<navigation></navigation>
+
+<!-- public/views/stockhist.html -->
+
+
+<div class="jumbotron text-center">
+    <h1>HYPERVISION</h1>
+
+    <div ng-repeat="o in arr">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ o }}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-6">
+                    <div id="mycharth{{ $index }}" class="c3"></div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="mycharthl{{ $index }}" class="c3"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
