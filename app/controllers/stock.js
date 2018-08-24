@@ -37,10 +37,11 @@ module.exports.getHistToDB = function () {
     //libelles = ['ETF INDE', 'ETF SP500', 'ETF SUISSE', 'ETF VIETNAM', 'ETF MSCI WOLRD', 'ETF CHINE', 'ETF OIL', 'ETF CAC40', 'ETF FTSE 100'];
     for (i = 0; i < tickers.length; i++) {
 
-        ticker = tickers[i];
-        setTimeout(function () {
+        //ticker = tickers[i];
+        setTimeout(function (ticker) {
+            //console.log(ticker);
             getHistToDBOneStock(ticker);
-        },60000 * i);
+        },60000 * i,tickers[i]);
 
     }
 
