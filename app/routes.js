@@ -3,6 +3,7 @@
 // grab the nerd model we just created
 //var Nerd = require('./models/nerd');
 var FavList = require('./models/favlist.js');
+var StockHist = require('./models/StockHist.js');
 var FolioList = require('./controllers/portfolios.js');
 var Transactions = require('./controllers/transactions.js');
 var Stock = require('./controllers/stock.js');
@@ -14,19 +15,16 @@ module.exports = function (app) {
     // server routes ===========================================================
     // handle things like api calls
     // authentication routes
-    app.post('/api/checklogin/',function(req,res)
-    {
+    app.post('/api/checklogin/', function (req, res) {
         //console.log(req.body);
         loguser = "KO";
-        if (req.body.username=="grn" & req.body.password=="grn")
-        {
-          loguser = "GRN";
+        if (req.body.username == "grn" & req.body.password == "grn") {
+            loguser = "GRN";
         }
-        if (req.body.username=="nbn" & req.body.password=="n")
-        {
-          loguser = "NBN";
+        if (req.body.username == "nbn" & req.body.password == "n") {
+            loguser = "NBN";
         }
-        
+
         res.send(loguser);
     });
 
@@ -91,6 +89,36 @@ module.exports = function (app) {
 
     //Route for StockValues
     app.get('/api/stockhist', function (req, res) {
+        //console.log(req.query.ticker);
+        StockHist.find({ 'code': req.query.ticker }, function (err, result) {
+            if (err) return next(err);
+            if (result.length > 0) {
+                switch (req.query.gtype) {
+                    case 'MONTHLY':
+                        data = result[0].histm;
+                        break;
+                    case 'WEEKLY':
+                        data = result[0].histw;
+                        break;
+                    case 'DAILY':
+                        data = result[0].histd;
+                        break;
+                    default:
+                        console.log('Bad GTYPE');
+                }
+                res.send(data);
+            }
+            else { console.log("aucun résultat pour " + req.query.ticker);
+            res.send();
+         }
+        });
+
+
+
+    });
+
+
+    app.get('/api/stockhistweb', function (req, res) {
         //console.log('api stockhist');
         var ticker = req.query.ticker;
         switch (req.query.gtype) {
@@ -184,8 +212,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post('/api/addtransaction/',function(req,res)
-    {
+    app.post('/api/addtransaction/', function (req, res) {
         //console.log("TATA" + req.body.type);
         Transactions.add(req.body);
 
@@ -193,8 +220,8 @@ module.exports = function (app) {
     });
 
     app.get('/api/listtransaction/:portfolio/:ticker', function (req, res) {
-        
-        Transactions.list(req.params.portfolio,req.params.ticker, function (err, resultlist) {
+
+        Transactions.list(req.params.portfolio, req.params.ticker, function (err, resultlist) {
             if (err)
                 res.send(err);
             res.json(resultlist); // return all favorites in JSON format
@@ -202,11 +229,11 @@ module.exports = function (app) {
     });
 
     app.post('/api/savelastvalue/:portfolio/:ticker/:value', function (req, res) {
-        
-        FolioList.updatevalue(req.params.portfolio,req.params.ticker,req.params.value , function (err, resultlist) {
+
+        FolioList.updatevalue(req.params.portfolio, req.params.ticker, req.params.value, function (err, resultlist) {
             if (err)
                 res.send(err);
-            res.send(); 
+            res.send();
         });
     });
 

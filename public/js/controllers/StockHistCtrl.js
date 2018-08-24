@@ -96,7 +96,7 @@ angular.module('StockHistCtrl', []).controller('StockHistController', function (
                     }
                 }
             });
-        }, 30000 * index);
+        }, 100 * index);
 
     }
 

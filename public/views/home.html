@@ -6,7 +6,7 @@
     <h1>Etat des marchés</h1>
 
     <div>
-        Taux FR à 10 ans Home
+        Taux FR à 10 ans
         <div class="btn btn-default">
             <a href="http://www.aft.gouv.fr/rubriques/tec-10_173.html"> AFT TEC10 </a>  
         </div>
@@ -19,7 +19,7 @@
         <a href="https://finviz.com/map.ashx?t=sec&st=ytd"> MAP SP500 </a> 
     </div>
 
-    <button ng-click="getHistToDB()" class="btn btn-success btn-sm">
+    <button ng-click="getHistToDB()" class="btn btn-success btn-sm" ng-show="logged">
         Refresh Hist to DB
     </button>
 

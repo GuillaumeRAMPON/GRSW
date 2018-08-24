@@ -1,6 +1,8 @@
 // public/js/controllers/MainCtrl.js
 angular.module('MainCtrl', ['ngCookies']).controller('MainController', function ($scope, $location, $http, UserService) {
 
+    $scope.logged = UserService.isLoggedIn();
+
     $scope.getHistToDB = function () {
 
         if (UserService.isLoggedIn()) {

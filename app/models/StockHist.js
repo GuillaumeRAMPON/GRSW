@@ -2,8 +2,8 @@
 var mongoose = require('mongoose');
 
 var StockHistSchema = new mongoose.Schema({
-    date: Date,
-    value: Number
+    closedate: String,
+    closevalue: Number
 });
 
 

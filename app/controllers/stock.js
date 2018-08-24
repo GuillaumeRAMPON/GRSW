@@ -128,11 +128,11 @@ function getHist(ticker, gtype) {
                     //console.log(`srcjsonvalues.${prop} = ${srcjsonvalues[prop]["4. close"]}`);
 
                     item = {}
-                    item["date"] = prop;
-                    item["value"] = `${srcjsonvalues[prop]["4. close"]}`;
+                    item["closedate"] = prop;
+                    item["closevalue"] = `${srcjsonvalues[prop]["4. close"]}`;
 
                     //Filter bad 0 values
-                    if (item["value"] != 0) {
+                    if (item["closevalue"] != 0) {
                         outjsonObj.push(item);
                     }
 
