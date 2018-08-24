@@ -1,5 +1,17 @@
 // public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', ['ngCookies']).controller('MainController', function ($scope,$location,UserService) {
+angular.module('MainCtrl', ['ngCookies']).controller('MainController', function ($scope, $location, $http, UserService) {
+
+    $scope.getHistToDB = function () {
+
+        if (UserService.isLoggedIn()) {
+            $http({
+                method: 'GET',
+                url: '/api/getHistToDB'
+            });
+        }
+
+    }
+
     /*
     var tickers = ['.IXIC', '.INX','PX1'];
     var libelles = ['NASDAQ', 'SP500','CAC 40'];

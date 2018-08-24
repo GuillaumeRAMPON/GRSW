@@ -5,6 +5,7 @@
 var FavList = require('./models/favlist.js');
 var FolioList = require('./controllers/portfolios.js');
 var Transactions = require('./controllers/transactions.js');
+var Stock = require('./controllers/stock.js');
 var http = require('http');
 var request = require('request');
 
@@ -81,6 +82,11 @@ module.exports = function (app) {
     app.get('/api/foliohistw/:id', function (req, res) {
         id = req.params.id;
         FolioList.gethistw(id, function (err, foliolist) { if (err) res.send(err); res.json(foliolist); });
+    });
+
+    app.get('/api/getHistToDB', function (req, res) {
+        Stock.getHistToDB();
+        res.send();
     });
 
     //Route for StockValues
