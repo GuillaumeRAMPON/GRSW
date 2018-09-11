@@ -6,16 +6,16 @@ angular.module('StockHistCtrl', []).controller('StockHistController', function (
 
     $scope.stockgroup = ['ACTION', 'ETF'];
     $scope.lselected = 'ACTION';
-    $scope.tickers = ['BON.PA', 'OR.PA', 'RIN.PA', 'CS.PA', 'LI.PA', 'BIM.PA', 'JCQ.PA', 'ML.PA', 'SAN.PA', 'SU.PA'];
-    $scope.libelles = ['BONDUELLE', 'L OREAL', 'VILMORIN', 'AXA', 'KLEPIERRE', 'BIOMERIEUX', 'JACQUET METALS', 'MICHELIN', 'SANOFI', 'SCHNEIDER ELECTRIC'];
+    $scope.tickers = ['BOI.PA','BON.PA', 'OR.PA', 'RIN.PA', 'CS.PA', 'LI.PA', 'BIM.PA', 'JCQ.PA', 'ML.PA', 'SAN.PA', 'SU.PA'];
+    $scope.libelles = ['BOIRON','BONDUELLE', 'L OREAL', 'VILMORIN', 'AXA', 'KLEPIERRE', 'BIOMERIEUX', 'JACQUET METALS', 'MICHELIN', 'SANOFI', 'SCHNEIDER ELECTRIC'];
     affichelist();
 
     $scope.switchHistList = function () {
         //console.log($scope.pselected);
         switch ($scope.lselected) {
             case 'ACTION':
-                $scope.tickers = ['BON.PA', 'OR.PA', 'RIN.PA', 'CS.PA', 'LI.PA', 'BIM.PA', 'JCQ.PA', 'ML.PA', 'SAN.PA', 'SU.PA'];
-                $scope.libelles = ['BONDUELLE', 'L OREAL', 'VILMORIN', 'AXA', 'KLEPIERRE', 'BIOMERIEUX', 'JACQUET METALS', 'MICHELIN', 'SANOFI', 'SCHNEIDER ELECTRIC'];
+                $scope.tickers = ['BOI.PA', 'OR.PA', 'RIN.PA', 'CS.PA', 'LI.PA', 'BIM.PA', 'JCQ.PA', 'ML.PA', 'SAN.PA', 'SU.PA'];
+                $scope.libelles = ['BOIRON','BONDUELLE', 'L OREAL', 'VILMORIN', 'AXA', 'KLEPIERRE', 'BIOMERIEUX', 'JACQUET METALS', 'MICHELIN', 'SANOFI', 'SCHNEIDER ELECTRIC'];
                 break;
             case 'ETF':
                 $scope.tickers = ['INR.PA', 'SP5.PA', 'CSW.PA', 'VNM', 'WLD.PA', 'ASI.PA', 'OIL.PA', 'CAC.PA', 'L100.PA'];

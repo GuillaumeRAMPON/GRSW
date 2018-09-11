@@ -31,7 +31,7 @@ module.exports.getHistToDB = function () {
 
     //console.log("getHistToDB");
     //tickers = ['BON.PA', 'OR.PA'];
-    tickers = ['BON.PA', 'OR.PA', 'RIN.PA', 'CS.PA', 'LI.PA', 'BIM.PA', 'JCQ.PA', 'ML.PA', 'SAN.PA', 'SU.PA','INR.PA', 'SP5.PA', 'CSW.PA', 'VNM', 'WLD.PA', 'ASI.PA', 'OIL.PA', 'CAC.PA', 'L100.PA'];
+    tickers = ['ALINN.PA','BOI.PA','BON.PA', 'OR.PA', 'RIN.PA', 'CS.PA', 'LI.PA', 'BIM.PA', 'JCQ.PA', 'ML.PA', 'SAN.PA', 'SU.PA','INR.PA', 'SP5.PA', 'CSW.PA', 'VNM', 'WLD.PA', 'ASI.PA', 'OIL.PA', 'CAC.PA', 'L100.PA'];
     //libelles = ['BONDUELLE', 'L OREAL', 'VILMORIN', 'AXA', 'KLEPIERRE', 'BIOMERIEUX', 'JACQUET METALS', 'MICHELIN', 'SANOFI', 'SCHNEIDER ELECTRIC'];
     //tickers = ['INR.PA', 'SP5.PA', 'CSW.PA', 'VNM', 'WLD.PA', 'ASI.PA', 'OIL.PA', 'CAC.PA', 'L100.PA'];
     //libelles = ['ETF INDE', 'ETF SP500', 'ETF SUISSE', 'ETF VIETNAM', 'ETF MSCI WOLRD', 'ETF CHINE', 'ETF OIL', 'ETF CAC40', 'ETF FTSE 100'];
