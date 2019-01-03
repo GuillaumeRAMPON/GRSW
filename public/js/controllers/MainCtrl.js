@@ -14,6 +14,198 @@ angular.module('MainCtrl', ['ngCookies']).controller('MainController', function 
 
     }
 
+
+    ticker = '1rPCAC';
+        $http({
+            method: 'GET',
+            url: '/api/getDailyBourso?ticker='+ ticker
+        }).then(function successCallback(response) {
+            $scope.tickerdata = response.data; 
+            var chart = c3.generate({
+                bindto: '#mychart1',
+                data: {
+                    json: response.data.d.QuoteTab,
+                    //url: '/api/stockdaily?ticker=' + tickers[i],
+                    mimeType: 'json',
+                    xFormat: '%S',
+                    keys: {
+                        x: 'd',
+                        value: ['c'],
+                    }
+                },
+                axis: {
+                    x: { show: false },
+                    y: {
+                        tick: {
+                            count: 5,
+                            format: d3.format('.0f')
+                        }
+                    }
+                },    
+                size: { height: 100, width: 150 },
+                point: { show: false },
+                legend: { hide: true }
+            });
+
+        })
+
+        ticker2 = '$INDU';
+        $http({
+            method: 'GET',
+            url: '/api/getDailyBourso?ticker='+ ticker2
+        }).then(function successCallback(response) {
+            $scope.tickerdata2 = response.data; 
+            var chart = c3.generate({
+                bindto: '#mychart2',
+                data: {
+                    json: response.data.d.QuoteTab,
+                    //url: '/api/stockdaily?ticker=' + tickers[i],
+                    mimeType: 'json',
+                    xFormat: '%S',
+                    keys: {
+                        x: 'd',
+                        value: ['c'],
+                    }
+                },
+                axis: {
+                    x: { show: false },
+                    y: {
+                        tick: {
+                            count: 5,
+                            format: d3.format('.0f')
+                        }
+                    }
+                },    
+                size: { height: 100, width: 150 },
+                point: { show: false },
+                legend: { hide: true }
+            });
+
+        })
+
+        ticker3 = '$COMPX';
+        $http({
+            method: 'GET',
+            url: '/api/getDailyBourso?ticker='+ ticker3
+        }).then(function successCallback(response) {
+            $scope.tickerdata3 = response.data; 
+            var chart = c3.generate({
+                bindto: '#mychart3',
+                data: {
+                    json: response.data.d.QuoteTab,
+                    //url: '/api/stockdaily?ticker=' + tickers[i],
+                    mimeType: 'json',
+                    xFormat: '%S',
+                    keys: {
+                        x: 'd',
+                        value: ['c'],
+                    }
+                },
+                axis: {
+                    x: { show: false },
+                    y: {
+                        tick: {
+                            count: 5,
+                            format: d3.format('.0f')
+                        }
+                    }
+                },    
+                size: { height: 100, width: 150 },
+                point: { show: false },
+                legend: { hide: true }
+            });
+
+        })
+    
+    
+
+
+
+
+
+    var tickers = ['1rPCAC', '$INDU','$COMPX'];
+    var libelles = ['CAC 40', 'DOW JONES','NASDAQ'];
+    
+    $scope.tickticks = tickers;
+    $scope.ticklibs = libelles;
+    $scope.tickdata = [];
+
+
+    /*
+    for (i = 0; i < tickers.length; i++) {
+        $http({
+            method: 'GET',
+            url: '/api/getDailyBourso?ticker='+ tickers[i]
+        }).then(function successCallback(response) {
+             $scope.tickdata[i] = response.data;
+             console.log(i+"-"+response.data.d.Name);
+
+             var chart = c3.generate({
+                bindto: '#mychart'+i,
+                data: {
+                    json: $scope.tickdata[i].d.QuoteTab,
+                    //url: '/api/stockdaily?ticker=' + tickers[i],
+                    mimeType: 'json',
+                    xFormat: '%S',
+                    keys: {
+                        x: 'd',
+                        value: ['c'],
+                    }
+                },
+                axis: {
+                    x: { show: false },
+                    y: {
+                        tick: {
+                            count: 5,
+                            format: d3.format('.0f')
+                        }
+                    }
+                },    
+                size: { height: 100, width: 150 },
+                point: { show: false }
+            });
+
+
+        })
+    }
+    */
+
+    /*
+    $http({
+        method: 'GET',
+        url: '/api/getDailyBourso?ticker=1rPCAC', 
+    }).then(function successCallback(response) {
+         $scope.cac40 = response.data;
+
+            var chart = c3.generate({
+                bindto: '#chartCAC',
+                data: {
+                    json: $scope.cac40.d.QuoteTab,
+                    //url: '/api/stockdaily?ticker=' + tickers[i],
+                    mimeType: 'json',
+                    xFormat: '%S',
+                    keys: {
+                        x: 'd',
+                        value: ['c'],
+                    }
+                },
+                axis: {
+                    x: { show: false },
+                    y: {
+                        tick: {
+                            count: 5,
+                            format: d3.format('.0f')
+                        }
+                    }
+                },    
+                size: { height: 100, width: 150 },
+                point: { show: false }
+            });
+        
+        
+    })
+    */
+
     /*
     var tickers = ['.IXIC', '.INX','PX1'];
     var libelles = ['NASDAQ', 'SP500','CAC 40'];

@@ -23,9 +23,29 @@
         Refresh Hist to DB
     </button>
 
-    <!--
-    <div ng-repeat="o in arr">
+    <br>
+    CAC {{ tickerdata.d.qd.c }}  {{ (tickerdata.d.qd.c-tickerdata.d.qv.c) / tickerdata.d.qv.c * 100 | number :2 }} % <br>
+    <div id="mychart1" class="c3"></div> <br>
+
+    <br>
+    DOW JONES {{ tickerdata2.d.qd.c }}  {{ (tickerdata2.d.qd.c-tickerdata2.d.qv.c) / tickerdata2.d.qv.c * 100 | number :2 }} % <br>
+    <div id="mychart2" class="c3"></div> <br>
+
+    <br>
+    NASDAQ {{ tickerdata3.d.qd.c }}  {{ (tickerdata3.d.qd.c-tickerdata3.d.qv.c) / tickerdata3.d.qv.c * 100 | number :2 }} % <br>
+    <div id="mychart3" class="c3"></div> <br>
+
+    
+    
+    
+
+
+
+<!--
+    <div ng-repeat="o in ticklibs">
         <h2>{{ o }}</h2>
+        {{ tickdata[$index].d.qd.c }}  {{ (tickdata[$index].d.qd.c-tickdata[$index].d.qv.c) / tickdata[$index].d.qv.c | number :2 }} % <br>
+        <div id="mychart{{tickticks[$index]}}" class="c3"></div>
         <div id="mychart{{ $index }}" class="c3"></div>
     </div>
 -->

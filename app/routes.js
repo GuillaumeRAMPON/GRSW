@@ -87,6 +87,18 @@ module.exports = function (app) {
         res.send();
     });
 
+    app.get('/api/getDailyBourso', function (req, res) {
+        ticker = req.query.ticker; //'1rPCAC';
+        //https://www.boursorama.com/bourse/action/graph/ws/GetTicksEOD?symbol=1rPCAC&length=1&period=0
+        request('https://www.boursorama.com/bourse/action/graph/ws/GetTicksEOD?symbol=' + ticker + '&length=1&period=0', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.send(body);
+            }
+    })
+
+        
+    });
+
     //Route for StockValues
     app.get('/api/stockhist', function (req, res) {
         //console.log(req.query.ticker);
