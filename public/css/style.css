@@ -1,0 +1,35 @@
+.pagetitle {
+    color: #F38630;
+    font-size: 40px;
+}
+
+
+.ticker { 
+    width: 250px;
+    height : 100px;
+    margin: 15px;
+    background-color: #A7DBD8;
+    font-weight: bold;
+    color: #FA6900;
+  }
+
+.tickergreen {
+    display: inline;
+    color: green;
+}
+
+.tickerred {
+    display: inline;
+    color: red;
+}
+
+/* colors 
+https://www.colourlovers.com/palette/92095/Giant_Goldfish
+
+#69D2E7
+#A7DBD8
+#E0E4CC
+#F38630
+#FA6900
+
+*/

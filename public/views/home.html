@@ -3,20 +3,42 @@
 <!-- public/views/home.html -->
 
 <div class="jumbotron text-center">
-    <h1>Etat des marchés</h1>
+    <div class="pagetitle">Etat des marchés</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="ticker col-md-4">
+                CAC 40 {{ tickerdata.d.qd.c }} <div ng-class="tickerdata.d.qd.c >= tickerdata.d.qv.c ? 'tickergreen': 'tickerred'">
+                    {{ (tickerdata.d.qd.c-tickerdata.d.qv.c) / tickerdata.d.qv.c * 100 | number :2 }} % </div>
+                <div id="mychart1" class="c3"></div>
+            </div>
+
+            <div class="ticker col-md-4">
+                DOW JONES {{ tickerdata2.d.qd.c }} <div ng-class="tickerdata2.d.qd.c >= tickerdata2.d.qv.c ? 'tickergreen': 'tickerred'">
+                    {{ (tickerdata2.d.qd.c-tickerdata2.d.qv.c) / tickerdata2.d.qv.c * 100 | number :2 }} % </div>
+                <div id="mychart2" class="c3"></div>
+            </div>
+
+            <div class="ticker col-md-4">
+                NASDAQ {{ tickerdata3.d.qd.c }} <div ng-class="tickerdata3.d.qd.c >= tickerdata3.d.qv.c ? 'tickergreen': 'tickerred'">
+                    {{ (tickerdata3.d.qd.c-tickerdata3.d.qv.c) / tickerdata3.d.qv.c * 100 | number :2 }} % </div>
+                <div id="mychart3" class="c3"></div>
+            </div>
+        </div>
+    </div>
 
     <div>
         Taux FR à 10 ans
         <div class="btn btn-default">
-            <a href="http://www.aft.gouv.fr/rubriques/tec-10_173.html"> AFT TEC10 </a>  
+            <a href="http://www.aft.gouv.fr/rubriques/tec-10_173.html"> AFT TEC10 </a>
         </div>
         <div class="btn btn-default">
-            <a href="http://www.bloomberg.com/quote/GFRN10:IND"> Graph </a> 
+            <a href="http://www.bloomberg.com/quote/GFRN10:IND"> Graph </a>
         </div>
     </div>
 
     <div class="btn btn-default">
-        <a href="https://finviz.com/map.ashx?t=sec&st=ytd"> MAP SP500 </a> 
+        <a href="https://finviz.com/map.ashx?t=sec&st=ytd"> MAP SP500 </a>
     </div>
 
     <button ng-click="getHistToDB()" class="btn btn-success btn-sm" ng-show="logged">
@@ -24,24 +46,12 @@
     </button>
 
     <br>
-    CAC {{ tickerdata.d.qd.c }}  {{ (tickerdata.d.qd.c-tickerdata.d.qv.c) / tickerdata.d.qv.c * 100 | number :2 }} % <br>
-    <div id="mychart1" class="c3"></div> <br>
-
-    <br>
-    DOW JONES {{ tickerdata2.d.qd.c }}  {{ (tickerdata2.d.qd.c-tickerdata2.d.qv.c) / tickerdata2.d.qv.c * 100 | number :2 }} % <br>
-    <div id="mychart2" class="c3"></div> <br>
-
-    <br>
-    NASDAQ {{ tickerdata3.d.qd.c }}  {{ (tickerdata3.d.qd.c-tickerdata3.d.qv.c) / tickerdata3.d.qv.c * 100 | number :2 }} % <br>
-    <div id="mychart3" class="c3"></div> <br>
-
-    
-    
-    
 
 
 
-<!--
+
+
+    <!--
     <div ng-repeat="o in ticklibs">
         <h2>{{ o }}</h2>
         {{ tickdata[$index].d.qd.c }}  {{ (tickdata[$index].d.qd.c-tickdata[$index].d.qv.c) / tickdata[$index].d.qv.c | number :2 }} % <br>
