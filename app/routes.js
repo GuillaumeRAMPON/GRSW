@@ -18,10 +18,10 @@ module.exports = function (app) {
     app.post('/api/checklogin/', function (req, res) {
         //console.log(req.body);
         loguser = "KO";
-        if (req.body.username == "grn" & req.body.password == "grn") {
+        if (req.body.username == "grn" & req.body.password == "nrg") {
             loguser = "GRN";
         }
-        if (req.body.username == "nbn" & req.body.password == "n") {
+        if (req.body.username == "nbn" & req.body.password == "nrg") {
             loguser = "NBN";
         }
 
