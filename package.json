@@ -3,7 +3,7 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "~1.4.2",
-    "express": "~4.5.1",
+    "express": "~4.17.3",
     "method-override": "~2.0.2",
     "mongoose": "^4.7.9",
     "nodemon": "^1.11.0",
