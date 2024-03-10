@@ -42,7 +42,7 @@
             <button type="submit" class="btn btn-default" ng-click="saveLastValue()" ng-disabled="valueform.$invalid">Save</button>
         </form>
     </div>
-
+    <!--  
     <div class="col-md-12">
         <h2>Courbes</h2>
         <button ng-click="generatechart('MONTHLY')">MONTHLY</button>
@@ -52,7 +52,7 @@
         <div id="mychart" class="c3"></div>
 
     </div>
-
+    -->
     
     <div class="row">
         <h2>Transactions</h2>
@@ -103,7 +103,7 @@
                     <th>Quantité</th>
                     <th>Montant</th>
                 </tr>
-                <tr ng-repeat="o in transactions | orderBy: 'date'">
+                <tr ng-repeat="o in transactions | orderBy: '-date'">
                     <td>{{o.date | date : 'dd/MM/yyyy'}}</td>
                     <td>{{o.type}}</td>
                     <td>{{o.quantity}}</td>
