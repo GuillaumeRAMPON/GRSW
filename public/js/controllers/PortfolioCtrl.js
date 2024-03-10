@@ -127,7 +127,7 @@ angular.module('PortfolioCtrl', []).controller('PortfolioController', function (
             }
             $scope.valototale = valototale;
             $scope.perftotale = perftotale;
-            $scope.perftotaleratio = perftotale / (jantotale + achattotale) * 100;
+            $scope.perftotaleratio = perftotale / jantotale * 100;
             $scope.jantotale = jantotale;
             $scope.achattotale = achattotale;
             $scope.ventetotale = ventetotale;
